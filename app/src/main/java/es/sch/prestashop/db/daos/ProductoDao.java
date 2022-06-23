@@ -29,7 +29,7 @@ public interface ProductoDao {
     @Query("DELETE FROM DBProducto")
     void deleteAll();
 
-    @Query("SELECT * FROM DBProducto WHERE idCategoryDefault = :idCategoryDefault")
+    @Query("SELECT * FROM DBProducto WHERE id_Category_Default = :idCategoryDefault")
     List<DBProducto> getProductoByCategory(String idCategoryDefault);
 
     @Query("UPDATE DBProducto SET  imagen = :url WHERE id = :id")

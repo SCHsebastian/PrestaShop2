@@ -9,12 +9,10 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import java.util.List;
 
 import es.sch.prestashop.api.PrestashopApi;
 import es.sch.prestashop.api.RetrofitClient;
 import es.sch.prestashop.api.prestashop.ApiUtils;
-import es.sch.prestashop.api.prestashop.Product;
 import es.sch.prestashop.api.prestashop.Products;
 import es.sch.prestashop.db.clases.DBProducto;
 import es.sch.prestashop.db.clases.DBUser;
@@ -24,7 +22,7 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 
-@Database(entities = {DBUser.class, DBProducto.class}, version = 2, exportSchema = false)
+@Database(entities = {DBUser.class, DBProducto.class}, version = 1, exportSchema = false)
 public abstract class PrestaDB extends RoomDatabase {
 
     public static volatile PrestaDB INSTANCE;

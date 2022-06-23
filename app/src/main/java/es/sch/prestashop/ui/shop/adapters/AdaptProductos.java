@@ -60,7 +60,7 @@ public class AdaptProductos extends RecyclerView.Adapter<AdaptProductos.ViewHold
       public ViewHolder(@NonNull View v) {
          super(v);
          imagen = v.findViewById(R.id.ivProductoAdapter);
-         nombre = v.findViewById(R.id.tvDialogTitulo);
+         nombre = v.findViewById(R.id.tvNombreProductoAdapter);
          precio = v.findViewById(R.id.tvPrecioAdapter);
       }
 

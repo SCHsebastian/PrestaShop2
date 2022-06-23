@@ -9,30 +9,30 @@ public class DBProducto {
     @PrimaryKey
     private Integer id;
 
-    private String idCategoryDefault;
-    private String idDefaultImage;
-    private String manufacturerName;
+    private String id_Category_Default;
+    private String id_Default_Image;
+    private String manufacturer_Name;
     private String type;
     private String price;
-    private String additionalShippingCost;
-    private String dateUpdate;
+    private String additional_ShippingCost;
+    private String date_Upd;
     private String name;
     private String description;
-    private String descriptionShort;
+    private String description_Short;
     private String imagen;
 
-    public DBProducto(Integer id, String idCategoryDefault, String idDefaultImage, String manufacturerName, String type, String price, String additionalShippingCost, String name, String description, String descriptionShort, String dateUpdate) {
+    public DBProducto(Integer id, String id_Category_Default, String id_Default_Image, String manufacturer_Name, String type, String price, String additional_ShippingCost, String date_Upd, String name, String description, String description_Short) {
         this.id = id;
-        this.idCategoryDefault = idCategoryDefault;
-        this.idDefaultImage = idDefaultImage;
-        this.manufacturerName = manufacturerName;
+        this.id_Category_Default = id_Category_Default;
+        this.id_Default_Image = id_Default_Image;
+        this.manufacturer_Name = manufacturer_Name;
         this.type = type;
         this.price = price;
-        this.additionalShippingCost = additionalShippingCost;
+        this.additional_ShippingCost = additional_ShippingCost;
+        this.date_Upd = date_Upd;
         this.name = name;
         this.description = description;
-        this.descriptionShort = descriptionShort;
-        this.dateUpdate = dateUpdate;
+        this.description_Short = description_Short;
     }
 
     public Integer getId() {
@@ -43,28 +43,28 @@ public class DBProducto {
         this.id = id;
     }
 
-    public String getIdCategoryDefault() {
-        return idCategoryDefault;
+    public String getId_Category_Default() {
+        return id_Category_Default;
     }
 
-    public void setIdCategoryDefault(String idCategoryDefault) {
-        this.idCategoryDefault = idCategoryDefault;
+    public void setId_Category_Default(String id_Category_Default) {
+        this.id_Category_Default = id_Category_Default;
     }
 
-    public String getIdDefaultImage() {
-        return idDefaultImage;
+    public String getId_Default_Image() {
+        return id_Default_Image;
     }
 
-    public void setIdDefaultImage(String idDefaultImage) {
-        this.idDefaultImage = idDefaultImage;
+    public void setId_Default_Image(String id_Default_Image) {
+        this.id_Default_Image = id_Default_Image;
     }
 
-    public String getManufacturerName() {
-        return manufacturerName;
+    public String getManufacturer_Name() {
+        return manufacturer_Name;
     }
 
-    public void setManufacturerName(String manufacturerName) {
-        this.manufacturerName = manufacturerName;
+    public void setManufacturer_Name(String manufacturer_Name) {
+        this.manufacturer_Name = manufacturer_Name;
     }
 
     public String getType() {
@@ -83,12 +83,20 @@ public class DBProducto {
         this.price = price;
     }
 
-    public String getAdditionalShippingCost() {
-        return additionalShippingCost;
+    public String getAdditional_ShippingCost() {
+        return additional_ShippingCost;
     }
 
-    public void setAdditionalShippingCost(String additionalShippingCost) {
-        this.additionalShippingCost = additionalShippingCost;
+    public void setAdditional_ShippingCost(String additional_ShippingCost) {
+        this.additional_ShippingCost = additional_ShippingCost;
+    }
+
+    public String getDate_Upd() {
+        return date_Upd;
+    }
+
+    public void setDate_Upd(String date_Upd) {
+        this.date_Upd = date_Upd;
     }
 
     public String getName() {
@@ -107,20 +115,12 @@ public class DBProducto {
         this.description = description;
     }
 
-    public String getDescriptionShort() {
-        return descriptionShort;
+    public String getDescription_Short() {
+        return description_Short;
     }
 
-    public void setDescriptionShort(String descriptionShort) {
-        this.descriptionShort = descriptionShort;
-    }
-
-    public String getDateUpdate() {
-        return dateUpdate;
-    }
-
-    public void setDateUpdate(String dateUpdate) {
-        this.dateUpdate = dateUpdate;
+    public void setDescription_Short(String description_Short) {
+        this.description_Short = description_Short;
     }
 
     public String getImagen() {
