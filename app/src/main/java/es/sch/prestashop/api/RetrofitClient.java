@@ -2,6 +2,7 @@ package es.sch.prestashop.api;
 
 import java.util.concurrent.TimeUnit;
 
+import es.sch.prestashop.api.prestashop.ApiUtils;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -11,9 +12,6 @@ public class RetrofitClient {
 
    private static BinshopApi API_BINSHOP;
    private static PrestashopApi API_PRESTASHOP;
-
-   public static final String BASE_URL = "https://casadelafortuna.es/";
-   public static final String API_KEY = "T8748FNG4B66MS6R4GR1PEAKZJQHN9S6";
 
 
    private static OkHttpClient getInterceptor(){
@@ -36,7 +34,7 @@ public class RetrofitClient {
 
       if (API_BINSHOP == null) {
          Retrofit retrofit = new Retrofit.Builder()
-                 .baseUrl(BASE_URL)
+                 .baseUrl(ApiUtils.BASE_URL)
                  .addConverterFactory(GsonConverterFactory.create())
                  .client(getInterceptor())
                  .build();
@@ -51,7 +49,7 @@ public class RetrofitClient {
 
       if (API_PRESTASHOP == null) {
          Retrofit retrofit = new Retrofit.Builder()
-                 .baseUrl(BASE_URL)
+                 .baseUrl(ApiUtils.BASE_URL)
                  .addConverterFactory(GsonConverterFactory.create())
                  .client(getInterceptor())
                  .build();

@@ -21,6 +21,9 @@ public interface ProductoDao {
     DBProducto getProductoById(int id);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertAll(List<DBProducto> productos);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(DBProducto producto);
 
     @Delete
@@ -37,4 +40,6 @@ public interface ProductoDao {
 
     @Query("SELECT * FROM DBProducto")
     List<DBProducto> getAll();
+
+
 }

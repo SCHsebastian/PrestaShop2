@@ -40,7 +40,7 @@ public class ShopFragment extends Fragment {
         productosLiveData.observe(getViewLifecycleOwner(), products -> {
             if (products.size()!=0){
                 rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-                AdaptProductos adaptProductos = new AdaptProductos(products);
+                AdaptProductos adaptProductos = new AdaptProductos(products, getContext());
                 rv.setAdapter(adaptProductos);
             }
         });

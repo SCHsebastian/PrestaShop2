@@ -3,36 +3,49 @@ package es.sch.prestashop.db.clases;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.io.File;
+
+import es.sch.prestashop.api.prestashop.ApiUtils;
+
 @Entity(tableName = "DBProducto")
 public class DBProducto {
 
     @PrimaryKey
     private Integer id;
-
-    private String id_Category_Default;
-    private String id_Default_Image;
-    private String manufacturer_Name;
+    @SerializedName(value = "id_category_default")
+    private String id_category_default;
+    @SerializedName(value = "id_default_image")
+    private String id_default_image;
+    @SerializedName(value = "manufacturer_name")
+    private String manufacturer_name;
     private String type;
     private String price;
-    private String additional_ShippingCost;
-    private String date_Upd;
+    @SerializedName(value = "additional_shipping_cost")
+    private String additional_shipping_cost;
+    @SerializedName(value = "date_upd")
+    private String date_upd;
     private String name;
     private String description;
-    private String description_Short;
+    @SerializedName(value = "description_short")
+    private String description_short;
+    @Expose(serialize = false, deserialize = false)
     private String imagen;
 
-    public DBProducto(Integer id, String id_Category_Default, String id_Default_Image, String manufacturer_Name, String type, String price, String additional_ShippingCost, String date_Upd, String name, String description, String description_Short) {
+    public DBProducto(Integer id, String id_category_default, String id_default_image, String manufacturer_name, String type, String price, String additional_shipping_cost, String date_upd, String name, String description, String description_short) {
         this.id = id;
-        this.id_Category_Default = id_Category_Default;
-        this.id_Default_Image = id_Default_Image;
-        this.manufacturer_Name = manufacturer_Name;
+        this.id_category_default = id_category_default;
+        this.id_default_image = id_default_image;
+        this.manufacturer_name = manufacturer_name;
         this.type = type;
         this.price = price;
-        this.additional_ShippingCost = additional_ShippingCost;
-        this.date_Upd = date_Upd;
+        this.additional_shipping_cost = additional_shipping_cost;
+        this.date_upd = date_upd;
         this.name = name;
         this.description = description;
-        this.description_Short = description_Short;
+        this.description_short = description_short;
     }
 
     public Integer getId() {
@@ -43,28 +56,52 @@ public class DBProducto {
         this.id = id;
     }
 
-    public String getId_Category_Default() {
-        return id_Category_Default;
+    public String getId_category_default() {
+        return id_category_default;
     }
 
-    public void setId_Category_Default(String id_Category_Default) {
-        this.id_Category_Default = id_Category_Default;
+    public void setId_category_default(String id_category_default) {
+        this.id_category_default = id_category_default;
     }
 
-    public String getId_Default_Image() {
-        return id_Default_Image;
+    public String getId_default_image() {
+        return id_default_image;
     }
 
-    public void setId_Default_Image(String id_Default_Image) {
-        this.id_Default_Image = id_Default_Image;
+    public void setId_default_image(String id_default_image) {
+        this.id_default_image = id_default_image;
     }
 
-    public String getManufacturer_Name() {
-        return manufacturer_Name;
+    public String getManufacturer_name() {
+        return manufacturer_name;
     }
 
-    public void setManufacturer_Name(String manufacturer_Name) {
-        this.manufacturer_Name = manufacturer_Name;
+    public void setManufacturer_name(String manufacturer_name) {
+        this.manufacturer_name = manufacturer_name;
+    }
+
+    public String getAdditional_shipping_cost() {
+        return additional_shipping_cost;
+    }
+
+    public void setAdditional_shipping_cost(String additional_shippingCost) {
+        this.additional_shipping_cost = additional_shippingCost;
+    }
+
+    public String getDate_upd() {
+        return date_upd;
+    }
+
+    public void setDate_upd(String date_upd) {
+        this.date_upd = date_upd;
+    }
+
+    public String getDescription_short() {
+        return description_short;
+    }
+
+    public void setDescription_short(String description_short) {
+        this.description_short = description_short;
     }
 
     public String getType() {
@@ -83,21 +120,6 @@ public class DBProducto {
         this.price = price;
     }
 
-    public String getAdditional_ShippingCost() {
-        return additional_ShippingCost;
-    }
-
-    public void setAdditional_ShippingCost(String additional_ShippingCost) {
-        this.additional_ShippingCost = additional_ShippingCost;
-    }
-
-    public String getDate_Upd() {
-        return date_Upd;
-    }
-
-    public void setDate_Upd(String date_Upd) {
-        this.date_Upd = date_Upd;
-    }
 
     public String getName() {
         return name;
@@ -115,13 +137,6 @@ public class DBProducto {
         this.description = description;
     }
 
-    public String getDescription_Short() {
-        return description_Short;
-    }
-
-    public void setDescription_Short(String description_Short) {
-        this.description_Short = description_Short;
-    }
 
     public String getImagen() {
         return imagen;
@@ -130,4 +145,9 @@ public class DBProducto {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
+
+    public File getUrlImagen(){
+        return null;
+    }
+
 }
