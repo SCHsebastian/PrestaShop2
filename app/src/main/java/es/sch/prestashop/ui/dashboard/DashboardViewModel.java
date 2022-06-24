@@ -1,19 +1,22 @@
 package es.sch.prestashop.ui.dashboard;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import es.sch.prestashop.db.clases.DBUser;
 
 public class DashboardViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    public static volatile DBUser user;
 
-    public DashboardViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+    public DashboardViewModel(DBUser user) {
+        DashboardViewModel.user = user;
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public static DBUser getUser() {
+        return user;
+    }
+
+    public static void setUser(DBUser user) {
+        DashboardViewModel.user = user;
     }
 }

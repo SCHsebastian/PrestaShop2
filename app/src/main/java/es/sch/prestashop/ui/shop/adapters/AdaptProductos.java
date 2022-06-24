@@ -63,12 +63,13 @@ public class AdaptProductos extends RecyclerView.Adapter<AdaptProductos.ViewHold
          if(item.getImagen()!=null){
             DescargarImagen.cargaImagen(holder.imagen,item.getImagen());
          }else {
+            holder.imagen.setImageResource(R.drawable.ic_downloading_foreground);
             RetrofitClient.getApiPrestashop().getImage(item.getId(),Integer.parseInt(item.getId_default_image()),ApiUtils.API_KEY).enqueue(new Callback<ResponseBody>() {
                @Override
                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                     if (response.isSuccessful()){
                        String ubi = DescargarImagen.writeResponseBodyToDisk(response.body(),item.getName()+item.getId()+".jpg",context);
-                       if (ubi!="ERROR"){
+                       if (!ubi.equals("ERROR")){
                           item.setImagen(ubi);
                           Picasso.get().load(item.getImagen()).into(holder.imagen);
                           PrestaDB.INSTANCE.productoDao().updateImagen(item.getId(),ubi);
