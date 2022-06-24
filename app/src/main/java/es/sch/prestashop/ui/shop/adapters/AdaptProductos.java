@@ -92,6 +92,10 @@ public class AdaptProductos extends RecyclerView.Adapter<AdaptProductos.ViewHold
       return productos.size();
    }
 
+   public void setOnItemClickListener(OnItemClickListener listener) {
+      mListener = listener;
+   }
+
    public interface OnItemClickListener {
       void onItemLongClick(View view, int position);
       void onItemClick(View view, int position);

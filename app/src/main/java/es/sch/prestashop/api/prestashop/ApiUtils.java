@@ -12,4 +12,5 @@ public class ApiUtils {
 
     public static final String JSON_TYPE = "JSON";
     public static final String URL_IMAGES = "http://casadelafortuna.es/api/images/products/";
+    public static final String UPDATE_CART_ITEM = "update";
 }

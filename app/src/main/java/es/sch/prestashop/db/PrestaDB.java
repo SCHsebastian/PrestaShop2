@@ -16,9 +16,11 @@ import es.sch.prestashop.api.RetrofitClient;
 import es.sch.prestashop.api.prestashop.ApiUtils;
 import es.sch.prestashop.api.prestashop.Categories;
 import es.sch.prestashop.api.prestashop.Products;
+import es.sch.prestashop.db.clases.DBCarrito;
 import es.sch.prestashop.db.clases.DBCategoria;
 import es.sch.prestashop.db.clases.DBProducto;
 import es.sch.prestashop.db.clases.DBUser;
+import es.sch.prestashop.db.daos.CarritoDao;
 import es.sch.prestashop.db.daos.CategoriaDao;
 import es.sch.prestashop.db.daos.ProductoDao;
 import es.sch.prestashop.db.daos.UserDao;
@@ -29,7 +31,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-@Database(entities = {DBUser.class, DBProducto.class, DBCategoria.class}, version = 1, exportSchema = false)
+@Database(entities = {DBUser.class, DBProducto.class, DBCategoria.class, DBCarrito.class}, version = 1, exportSchema = false)
 public abstract class PrestaDB extends RoomDatabase {
 
     public static String TAG = "PrestaDB";
@@ -101,4 +103,5 @@ public abstract class PrestaDB extends RoomDatabase {
     public abstract UserDao userDao();
     public abstract ProductoDao productoDao();
     public abstract CategoriaDao categoriaDao();
+    public abstract CarritoDao carritoDao();
 }

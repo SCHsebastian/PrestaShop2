@@ -27,6 +27,8 @@ public class DBProducto {
     private String additional_shipping_cost;
     @SerializedName(value = "date_upd")
     private String date_upd;
+    @SerializedName(value = "cache_default_attribute")
+    private int cache_default_attribute;
     private String name;
     private String description;
     @SerializedName(value = "description_short")
@@ -34,7 +36,7 @@ public class DBProducto {
     @Expose(serialize = false, deserialize = false)
     private String imagen;
 
-    public DBProducto(Integer id, String id_category_default, String id_default_image, String manufacturer_name, String type, String price, String additional_shipping_cost, String date_upd, String name, String description, String description_short) {
+    public DBProducto(Integer id, String id_category_default, String id_default_image, String manufacturer_name, String type, String price, String additional_shipping_cost, String date_upd, int cache_default_attribute, String name, String description, String description_short) {
         this.id = id;
         this.id_category_default = id_category_default;
         this.id_default_image = id_default_image;
@@ -43,6 +45,7 @@ public class DBProducto {
         this.price = price;
         this.additional_shipping_cost = additional_shipping_cost;
         this.date_upd = date_upd;
+        this.cache_default_attribute = cache_default_attribute;
         this.name = name;
         this.description = description;
         this.description_short = description_short;
@@ -137,6 +140,13 @@ public class DBProducto {
         this.description = description;
     }
 
+    public int getCache_default_attribute() {
+        return cache_default_attribute;
+    }
+
+    public void setCache_default_attribute(int cache_default_attribute) {
+        this.cache_default_attribute = cache_default_attribute;
+    }
 
     public String getImagen() {
         return imagen;

@@ -14,11 +14,11 @@ public interface BinshopApi {
  Call<BaseResponse> login(@Query(value = "email", encoded = true) String email,
                           @Query(value = "password", encoded = true) String passwd);
 
- @POST("/rest/register?")
- Call<BaseResponse> register(@Field(value = "email" , encoded = true) String email,
-                             @Field(value = "password" , encoded = true) String passwd,
-                             @Field("firstname") String firstname,
-                             @Field("lastname") String lastname);
+ @POST("/rest/register")
+ Call<BaseResponse> register(@Query(value = "email") String email,
+                             @Query(value = "password") String passwd,
+                             @Query("firstName") String firstname,
+                             @Query("lastName") String lastname);
 
  @GET("/rest/logout")
  Call<BaseResponse> logout(@Header("Cookie-value") String cookie);
@@ -32,4 +32,12 @@ public interface BinshopApi {
                                @Query("firstname") String nombre,
                                @Query("lastname")String apellidos,
                                @Query("gender") int gender);
+
+ @GET("/rest/cart")
+ Call<BaseResponse> cartItem(@Query(value = "update") int idItem,
+                             @Query(value = "id_product") int idProduct,
+                             @Query(value = "id_product_attribute") int idProductAttribute,
+                             @Query(value = "op") String upDown,
+                             @Query(value = "action") String action,
+                             @Query(value = "qty") int qty);
 }
