@@ -1,50 +1,54 @@
 package es.sch.prestashop.api.binshop;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.List;
 
 public class User {
 
     private String id;
-    private String idShop;
-    private String idShopGroup;
+    private String id_shop;
+    private String id_shop_group;
     private String note;
-    private String idGender;
-    private String idDefaultGroup;
-    private String idLang;
+    private String id_gender;
+    private String id_default_group;
+    private String id_lang;
     private String lastname;
     private String firstname;
     private String birthday;
     private String email;
     private String newsletter;
-    private String ipRegistrationNewsletter;
-    private String newsletterDateAdd;
+    private String ip_registration_newsletter;
+    private String newsletter_date_add;
     private String optin;
     private String website;
     private String company;
     private String siret;
     private String ape;
-    private String outstandingAllowAmount;
-    private String showPublicPrices;
-    private String idRisk;
-    private String maxPaymentDays;
+    private String outstanding_allow_amount;
+    private String show_public_prices;
+    private String id_risk;
+    private String max_payment_days;
     private String active;
-    private String isGuest;
+    private String is_guest;
     private String deleted;
     private String dateAdd;
     private String dateUpd;
     private Object years;
     private Object days;
     private Object months;
-    private Object geolocIdCountry;
-    private Object geolocIdState;
-    private Object geolocPostcode;
+    private Object geoloc_id_country;
+    private Object geoloc_id_state;
+    private Object geoloc_postcode;
     private Integer logged;
     private Object idGuest;
     private Object groupBox;
     private List<Object> idShopList = null;
     private Boolean forceId;
 
+    @Expose(serialize = false, deserialize = false)
     private String cookieName;
+    @Expose(serialize = false, deserialize = false)
     private String cookieValue;
 
     public String getId() {
@@ -55,20 +59,20 @@ public class User {
         this.id = id;
     }
 
-    public String getIdShop() {
-        return idShop;
+    public String getId_shop() {
+        return id_shop;
     }
 
-    public void setIdShop(String idShop) {
-        this.idShop = idShop;
+    public void setId_shop(String id_shop) {
+        this.id_shop = id_shop;
     }
 
-    public String getIdShopGroup() {
-        return idShopGroup;
+    public String getId_shop_group() {
+        return id_shop_group;
     }
 
-    public void setIdShopGroup(String idShopGroup) {
-        this.idShopGroup = idShopGroup;
+    public void setId_shop_group(String id_shop_group) {
+        this.id_shop_group = id_shop_group;
     }
 
     public String getNote() {
@@ -79,28 +83,28 @@ public class User {
         this.note = note;
     }
 
-    public String getIdGender() {
-        return idGender;
+    public String getId_gender() {
+        return id_gender;
     }
 
-    public void setIdGender(String idGender) {
-        this.idGender = idGender;
+    public void setId_gender(String id_gender) {
+        this.id_gender = id_gender;
     }
 
-    public String getIdDefaultGroup() {
-        return idDefaultGroup;
+    public String getId_default_group() {
+        return id_default_group;
     }
 
-    public void setIdDefaultGroup(String idDefaultGroup) {
-        this.idDefaultGroup = idDefaultGroup;
+    public void setId_default_group(String id_default_group) {
+        this.id_default_group = id_default_group;
     }
 
-    public String getIdLang() {
-        return idLang;
+    public String getId_lang() {
+        return id_lang;
     }
 
-    public void setIdLang(String idLang) {
-        this.idLang = idLang;
+    public void setId_lang(String id_lang) {
+        this.id_lang = id_lang;
     }
 
     public String getLastname() {
@@ -143,20 +147,20 @@ public class User {
         this.newsletter = newsletter;
     }
 
-    public String getIpRegistrationNewsletter() {
-        return ipRegistrationNewsletter;
+    public String getIp_registration_newsletter() {
+        return ip_registration_newsletter;
     }
 
-    public void setIpRegistrationNewsletter(String ipRegistrationNewsletter) {
-        this.ipRegistrationNewsletter = ipRegistrationNewsletter;
+    public void setIp_registration_newsletter(String ip_registration_newsletter) {
+        this.ip_registration_newsletter = ip_registration_newsletter;
     }
 
-    public String getNewsletterDateAdd() {
-        return newsletterDateAdd;
+    public String getNewsletter_date_add() {
+        return newsletter_date_add;
     }
 
-    public void setNewsletterDateAdd(String newsletterDateAdd) {
-        this.newsletterDateAdd = newsletterDateAdd;
+    public void setNewsletter_date_add(String newsletter_date_add) {
+        this.newsletter_date_add = newsletter_date_add;
     }
 
     public String getOptin() {
@@ -199,36 +203,36 @@ public class User {
         this.ape = ape;
     }
 
-    public String getOutstandingAllowAmount() {
-        return outstandingAllowAmount;
+    public String getOutstanding_allow_amount() {
+        return outstanding_allow_amount;
     }
 
-    public void setOutstandingAllowAmount(String outstandingAllowAmount) {
-        this.outstandingAllowAmount = outstandingAllowAmount;
+    public void setOutstanding_allow_amount(String outstanding_allow_amount) {
+        this.outstanding_allow_amount = outstanding_allow_amount;
     }
 
-    public String getShowPublicPrices() {
-        return showPublicPrices;
+    public String getShow_public_prices() {
+        return show_public_prices;
     }
 
-    public void setShowPublicPrices(String showPublicPrices) {
-        this.showPublicPrices = showPublicPrices;
+    public void setShow_public_prices(String show_public_prices) {
+        this.show_public_prices = show_public_prices;
     }
 
-    public String getIdRisk() {
-        return idRisk;
+    public String getId_risk() {
+        return id_risk;
     }
 
-    public void setIdRisk(String idRisk) {
-        this.idRisk = idRisk;
+    public void setId_risk(String id_risk) {
+        this.id_risk = id_risk;
     }
 
-    public String getMaxPaymentDays() {
-        return maxPaymentDays;
+    public String getMax_payment_days() {
+        return max_payment_days;
     }
 
-    public void setMaxPaymentDays(String maxPaymentDays) {
-        this.maxPaymentDays = maxPaymentDays;
+    public void setMax_payment_days(String max_payment_days) {
+        this.max_payment_days = max_payment_days;
     }
 
     public String getActive() {
@@ -239,12 +243,12 @@ public class User {
         this.active = active;
     }
 
-    public String getIsGuest() {
-        return isGuest;
+    public String getIs_guest() {
+        return is_guest;
     }
 
-    public void setIsGuest(String isGuest) {
-        this.isGuest = isGuest;
+    public void setIs_guest(String is_guest) {
+        this.is_guest = is_guest;
     }
 
     public String getDeleted() {
@@ -295,28 +299,28 @@ public class User {
         this.months = months;
     }
 
-    public Object getGeolocIdCountry() {
-        return geolocIdCountry;
+    public Object getGeoloc_id_country() {
+        return geoloc_id_country;
     }
 
-    public void setGeolocIdCountry(Object geolocIdCountry) {
-        this.geolocIdCountry = geolocIdCountry;
+    public void setGeoloc_id_country(Object geoloc_id_country) {
+        this.geoloc_id_country = geoloc_id_country;
     }
 
-    public Object getGeolocIdState() {
-        return geolocIdState;
+    public Object getGeoloc_id_state() {
+        return geoloc_id_state;
     }
 
-    public void setGeolocIdState(Object geolocIdState) {
-        this.geolocIdState = geolocIdState;
+    public void setGeoloc_id_state(Object geoloc_id_state) {
+        this.geoloc_id_state = geoloc_id_state;
     }
 
-    public Object getGeolocPostcode() {
-        return geolocPostcode;
+    public Object getGeoloc_postcode() {
+        return geoloc_postcode;
     }
 
-    public void setGeolocPostcode(Object geolocPostcode) {
-        this.geolocPostcode = geolocPostcode;
+    public void setGeoloc_postcode(Object geoloc_postcode) {
+        this.geoloc_postcode = geoloc_postcode;
     }
 
     public Integer getLogged() {
@@ -373,52 +377,5 @@ public class User {
 
     public void setCookieValue(String cookieValue) {
         this.cookieValue = cookieValue;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", idShop='" + idShop + '\'' +
-                ", idShopGroup='" + idShopGroup + '\'' +
-                ", note='" + note + '\'' +
-                ", idGender='" + idGender + '\'' +
-                ", idDefaultGroup='" + idDefaultGroup + '\'' +
-                ", idLang='" + idLang + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", birthday='" + birthday + '\'' +
-                ", email='" + email + '\'' +
-                ", newsletter='" + newsletter + '\'' +
-                ", ipRegistrationNewsletter='" + ipRegistrationNewsletter + '\'' +
-                ", newsletterDateAdd='" + newsletterDateAdd + '\'' +
-                ", optin='" + optin + '\'' +
-                ", website='" + website + '\'' +
-                ", company='" + company + '\'' +
-                ", siret='" + siret + '\'' +
-                ", ape='" + ape + '\'' +
-                ", outstandingAllowAmount='" + outstandingAllowAmount + '\'' +
-                ", showPublicPrices='" + showPublicPrices + '\'' +
-                ", idRisk='" + idRisk + '\'' +
-                ", maxPaymentDays='" + maxPaymentDays + '\'' +
-                ", active='" + active + '\'' +
-                ", isGuest='" + isGuest + '\'' +
-                ", deleted='" + deleted + '\'' +
-                ", dateAdd='" + dateAdd + '\'' +
-                ", dateUpd='" + dateUpd + '\'' +
-                ", years=" + years +
-                ", days=" + days +
-                ", months=" + months +
-                ", geolocIdCountry=" + geolocIdCountry +
-                ", geolocIdState=" + geolocIdState +
-                ", geolocPostcode=" + geolocPostcode +
-                ", logged=" + logged +
-                ", idGuest=" + idGuest +
-                ", groupBox=" + groupBox +
-                ", idShopList=" + idShopList +
-                ", forceId=" + forceId +
-                ", cookie='" + cookieName + '\'' +
-                ", cookieValue='"+cookieValue+'\''+
-                '}';
     }
 }

@@ -8,28 +8,78 @@ import androidx.room.PrimaryKey;
 public class DBUser {
 
     @PrimaryKey
-    public int uid;
+    private int uid;
 
     @ColumnInfo(name = "first_name")
-    public String firstName;
+    private String firstName;
 
     @ColumnInfo(name = "last_name")
-    public String lastName;
+    private String lastName;
 
     @ColumnInfo(name = "email")
-    public String email;
+    private String email;
 
-    @ColumnInfo(name = "cookie-name")
-    public String cookieName;
+    @ColumnInfo(name = "password")
+    private String password;
 
     @ColumnInfo(name = "cookie-value")
-    public String cookieValue;
+    private String cookieValue;
 
-    public DBUser(String firstName, String lastName, String email, String cookieName, String cookieValue) {
+    public DBUser(){
+    }
+
+    public DBUser(String firstName, String lastName, String email, String cookieValue) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.cookieName = cookieName;
+        this.cookieValue = cookieValue;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
+    public int getUid() {
+        return uid;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getCookieValue() {
+        return cookieValue;
+    }
+
+    public void setCookieValue(String cookieValue) {
         this.cookieValue = cookieValue;
     }
 }

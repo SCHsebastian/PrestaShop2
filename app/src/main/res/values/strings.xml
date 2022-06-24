@@ -4,6 +4,12 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_shop">Fortune Home</string>
+
+
+    <!--REGISTER-->
+    <string name="title_register">Create an Account</string>
+    <string name="title_login">Log in to your account</string>
+
     <string name="register">Register</string>
     <string name="login">Login</string>
     <string name="user_name">Name</string>
@@ -12,4 +18,16 @@
     <string name="user_password">Password</string>
     <string name="user_password2">Confirm Password</string>
     <string name="modify">Modify</string>
+    <string name="user_log_out">Logout</string>
+    <string name="logout_text">Successfully logged out</string>
+    <string name="title_modify_user">Modifing user</string>
+
+
+
+    <!--PRODUCTS-->
+    <string name="product_description">Description</string>
+    <string name="product_shipping_cost">Shipping Cost</string>
+    <string name="manufacturer_name">Manufacturer</string>
+
+
 </resources>

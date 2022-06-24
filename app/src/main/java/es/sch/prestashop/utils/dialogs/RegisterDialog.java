@@ -20,7 +20,7 @@ public class RegisterDialog extends DialogFragment {
 
     private OnRegisterListener mListener;
 
-    public static RegisterDialog newInstance() {
+    public static RegisterDialog newInstance(Bundle bundle) {
 
         Bundle args = new Bundle();
 
@@ -38,9 +38,6 @@ public class RegisterDialog extends DialogFragment {
         View view = inflater.inflate(R.layout.dialog_register, null);
         builder.setView(view);
 
-        TextView tvTitulo = view.findViewById(R.id.tvDialogTitulo);
-        tvTitulo.setText("Registro");
-
         EditText etCorreo = view.findViewById(R.id.etDialogEmail);
         EditText etPass = view.findViewById(R.id.etDialogPass);
         EditText etNombre = view.findViewById(R.id.etDialogNombre);
@@ -48,6 +45,18 @@ public class RegisterDialog extends DialogFragment {
 
         Button btnRegistrar = view.findViewById(R.id.btnDialogRegistrar);
         Button btnCancelar = view.findViewById(R.id.btnDialogCancelar);
+
+
+        TextView tvTitulo = view.findViewById(R.id.tvDialogTitulo);
+        //get bundle
+        if (getArguments().get("titulo") != null) {
+            tvTitulo.setText(getArguments().get("titulo").toString());
+        }else{
+            tvTitulo.setText(getContext().getString(R.string.title_register));
+        }
+        if (getArguments().get("btn")!=null){
+            btnRegistrar.setText(getArguments().get("btn").toString());
+        }
 
         btnRegistrar.setOnClickListener(view1 -> {
 
