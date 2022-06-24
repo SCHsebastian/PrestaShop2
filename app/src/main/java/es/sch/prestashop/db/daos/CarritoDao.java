@@ -31,7 +31,7 @@ public interface CarritoDao {
     @Delete
     void delete(DBCarrito carrito);
 
-    @Delete
+    @Query("DELETE FROM DBCarrito")
     void deleteAll();
 
 

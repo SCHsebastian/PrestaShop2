@@ -21,7 +21,7 @@ public interface BinshopApi {
                              @Query("lastName") String lastname);
 
  @GET("/rest/logout")
- Call<BaseResponse> logout(@Header("Cookie-value") String cookie);
+ Call<BaseResponse> logout();
 
  @GET("/rest")
  Call<BaseResponse> test();

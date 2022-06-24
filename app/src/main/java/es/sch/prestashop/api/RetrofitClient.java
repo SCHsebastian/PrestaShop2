@@ -1,8 +1,17 @@
 package es.sch.prestashop.api;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+
 import es.sch.prestashop.api.prestashop.ApiUtils;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -12,7 +21,7 @@ public class RetrofitClient {
 
    private static BinshopApi API_BINSHOP;
    private static PrestashopApi API_PRESTASHOP;
-
+   public static MutableLiveData<List<Cookie>> cookies;
 
    private static OkHttpClient getInterceptor(){
       // Creamos un interceptor y le indicamos el log level a usar
@@ -22,6 +31,20 @@ public class RetrofitClient {
       // Asociamos el interceptor a las peticiones
       final OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
       httpClient.addInterceptor(logging);
+
+      cookies = new MutableLiveData<>();
+      httpClient.cookieJar(new CookieJar() {
+         @Override
+         public void saveFromResponse(@NonNull HttpUrl httpUrl, @NonNull List<Cookie> list) {
+            cookies.postValue(list);
+         }
+
+         @NonNull
+         @Override
+         public List<Cookie> loadForRequest(@NonNull HttpUrl httpUrl) {
+            return cookies.getValue()!=null ? cookies.getValue() : new ArrayList<>();
+         }
+      });
 
       httpClient.connectTimeout(30, TimeUnit.SECONDS);
       httpClient.readTimeout(30, TimeUnit.SECONDS);
@@ -59,5 +82,4 @@ public class RetrofitClient {
 
       return API_PRESTASHOP;
    }
-
 }

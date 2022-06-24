@@ -83,7 +83,6 @@ public class AdaptProductos extends RecyclerView.Adapter<AdaptProductos.ViewHold
                }
             });
          }
-
       }
    }
 
@@ -113,6 +112,8 @@ public class AdaptProductos extends RecyclerView.Adapter<AdaptProductos.ViewHold
          nombre = v.findViewById(R.id.tvNombreProductoAdapter);
          precio = v.findViewById(R.id.tvPrecioAdapter);
          descripcion = v.findViewById(R.id.tvDescripcionAdapter);
+         v.setOnClickListener(this);
+         v.setOnLongClickListener(this);
       }
 
       @Override

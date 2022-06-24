@@ -1,6 +1,7 @@
 package es.sch.prestashop.db.daos;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -32,8 +33,8 @@ public interface ProductoDao {
     @Query("DELETE FROM DBProducto")
     void deleteAll();
 
-    @Query("SELECT * FROM DBProducto WHERE id_Category_Default = :idCategoryDefault")
-    List<DBProducto> getProductoByCategory(String idCategoryDefault);
+    @Query("SELECT * FROM DBProducto WHERE id_Category_Default LIKE '%' || :idCategoryDefault || '%'")
+    LiveData<List<DBProducto>> getProductoByCategory(String idCategoryDefault);
 
     @Query("UPDATE DBProducto SET  imagen = :url WHERE id = :id")
     void updateImagen(Integer id, String url);

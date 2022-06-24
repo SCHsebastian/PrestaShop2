@@ -16,6 +16,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
 
+import es.sch.prestashop.R;
 import es.sch.prestashop.databinding.FragmentShopBinding;
 import es.sch.prestashop.db.PrestaDB;
 import es.sch.prestashop.db.clases.DBProducto;
@@ -54,12 +55,12 @@ public class ShopFragment extends Fragment {
                     public void onItemLongClick(View view, int position) {
                         if (user!=null){
                             MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity());
-                            builder.setTitle("¿Quieres añadir el producto a favoritos?");
-                            builder.setPositiveButton("Añadir", (dialog, which) -> {
+                            builder.setTitle(getString(R.string.add_to_cart_dialog));
+                            builder.setPositiveButton(R.string.add, (dialog, which) -> {
                                 DBProducto producto = products.get(position);
                                 homeViewModel.insertarProducto(producto);
                             });
-                            builder.setNegativeButton("Cancelar", (dialog, which) -> {
+                            builder.setNegativeButton(R.string.cancel, (dialog, which) -> {
                                 dialog.dismiss();
                             });
                             builder.create().show();
@@ -70,7 +71,7 @@ public class ShopFragment extends Fragment {
                     public void onItemClick(View view, int position) {
                         DBProducto producto = products.get(position);
                         Bundle bundle = new Bundle();
-                        bundle.putInt("producto", producto.getId());
+                        bundle.putInt("id", producto.getId());
                         Intent intent = new Intent(getActivity(), actProducto.class);
                         intent.putExtras(bundle);
                         startActivity(intent);

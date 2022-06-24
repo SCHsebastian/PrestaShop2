@@ -25,9 +25,6 @@ public class DBUser {
     @ColumnInfo(name = "cookie-value")
     private String cookieValue;
 
-    public DBUser(){
-    }
-
     public DBUser(String firstName, String lastName, String email, String cookieValue) {
         this.firstName = firstName;
         this.lastName = lastName;

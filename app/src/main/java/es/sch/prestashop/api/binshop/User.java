@@ -41,9 +41,9 @@ public class User {
     private Object geoloc_id_state;
     private Object geoloc_postcode;
     private Integer logged;
-    private Object idGuest;
+    private Object id_guest;
     private Object groupBox;
-    private List<Object> idShopList = null;
+    private List<Object> id_shop_list = null;
     private Boolean forceId;
 
     @Expose(serialize = false, deserialize = false)
@@ -331,14 +331,6 @@ public class User {
         this.logged = logged;
     }
 
-    public Object getIdGuest() {
-        return idGuest;
-    }
-
-    public void setIdGuest(Object idGuest) {
-        this.idGuest = idGuest;
-    }
-
     public Object getGroupBox() {
         return groupBox;
     }
@@ -347,13 +339,6 @@ public class User {
         this.groupBox = groupBox;
     }
 
-    public List<Object> getIdShopList() {
-        return idShopList;
-    }
-
-    public void setIdShopList(List<Object> idShopList) {
-        this.idShopList = idShopList;
-    }
 
     public Boolean getForceId() {
         return forceId;
@@ -377,5 +362,21 @@ public class User {
 
     public void setCookieValue(String cookieValue) {
         this.cookieValue = cookieValue;
+    }
+
+    public Object getId_guest() {
+        return id_guest;
+    }
+
+    public void setId_guest(Object id_guest) {
+        this.id_guest = id_guest;
+    }
+
+    public List<Object> getId_shop_list() {
+        return id_shop_list;
+    }
+
+    public void setId_shop_list(List<Object> id_shop_list) {
+        this.id_shop_list = id_shop_list;
     }
 }

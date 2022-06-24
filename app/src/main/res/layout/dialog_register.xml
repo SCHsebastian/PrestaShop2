@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/titlespace"
-        android:text="Registrarse"
+        android:text="@string/title_register"
         android:textAlignment="center"
         android:textAppearance="@style/MaterialAlertDialog.Material3.Title.Text"
         android:textSize="24sp" />
@@ -25,7 +25,8 @@
             android:id="@+id/etDialogEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="email" />
+            android:hint="@string/user_email"
+            android:inputType="textWebEmailAddress|textAutoComplete" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -38,7 +39,8 @@
             android:id="@+id/etDialogPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="password" />
+            android:hint="@string/user_password"
+            android:inputType="textPassword|textAutoComplete|textWebPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -50,7 +52,8 @@
             android:id="@+id/etDialogNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="nombre" />
+            android:hint="@string/user_name"
+            android:inputType="textPersonName|textAutoComplete" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -62,7 +65,8 @@
             android:id="@+id/etDialogApellidos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="apellidos" />
+            android:hint="@string/user_lastname"
+            android:inputType="textPersonName|textAutoComplete" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,13 +81,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Cancelar" />
+            android:text="@android:string/cancel" />
 
         <Button
             android:id="@+id/btnDialogRegistrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Registrar" />
+            android:text="@string/register" />
     </LinearLayout>
 </LinearLayout>

@@ -73,7 +73,6 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             binding.btnLogout.setVisibility(View.VISIBLE);
             /*binding.btnModify.setOnClickListener(this);*/
             binding.btnLogout.setOnClickListener(this);
-
         }
 
 
@@ -134,8 +133,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                 }
             });
         }else if (view.getId()==R.id.btnLogout){
-            DBUser user = viewModel.getUser();
-            api.logout(user.getCookieValue()).enqueue(new Callback<BaseResponse>() {
+            api.logout().enqueue(new Callback<BaseResponse>() {
                 @Override
                 public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
                     if (response.isSuccessful()){
