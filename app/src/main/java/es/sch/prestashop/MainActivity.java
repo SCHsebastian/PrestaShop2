@@ -2,27 +2,31 @@ package es.sch.prestashop;
 
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.ViewGroup;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import es.sch.prestashop.databinding.ActivityMainBinding;
+import es.sch.prestashop.db.PrestaDB;
+import es.sch.prestashop.db.clases.DBCategoria;
+import es.sch.prestashop.ui.shop.ShopFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private Menu menuPrincipal;
     private NavController navController;
+    private Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,31 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.filter, menu);
         menuPrincipal = menu;
+        List<DBCategoria> categoriaList = PrestaDB.INSTANCE.categoriaDao().getAll();
+        if (categoriaList!=null){
+            if (menuPrincipal!=null){
+                menuPrincipal.findItem(R.id.menu_filter).setOnMenuItemClickListener(menuItem -> {
+                    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
+                    builder.setTitle(R.string.filter_category);
+                    //Añadimos un list picker para los items de la lista categorias
+                    List<String> listaCategorias = new ArrayList<>();
+                    for (DBCategoria categoria : categoriaList) {
+                        listaCategorias.add(categoria.getName());
+                    }
+
+                    //NO HAY MANERA DE CONSEGUIR EL FRAGMENT AL QUE ME QUIERO REFERIR...
+
+                    builder.setSingleChoiceItems(listaCategorias.toArray(new String[0]), -1, (dialog, which) -> {
+                        /*shopFragment.onFragmentInteraction(categoriaList.get(which).getId());*/
+                        dialog.dismiss();
+                    });
+
+                    builder.create().show();
+
+                    return false;
+                });
+            }
+        }
         return super.onCreateOptionsMenu(menu);
     }
 }

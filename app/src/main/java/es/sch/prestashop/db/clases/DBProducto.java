@@ -33,6 +33,8 @@ public class DBProducto {
     private String description;
     @SerializedName(value = "description_short")
     private String description_short;
+    @SerializedName(value="cart_quantity")
+    private int cart_quantity;
     @Expose(serialize = false, deserialize = false)
     private String imagen;
 
@@ -51,7 +53,7 @@ public class DBProducto {
         this.description_short = description_short;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
@@ -148,16 +150,20 @@ public class DBProducto {
         this.cache_default_attribute = cache_default_attribute;
     }
 
+    public int getCart_quantity() {
+        return cart_quantity;
+    }
+
+    public void setCart_quantity(int cart_quantity) {
+        this.cart_quantity = cart_quantity;
+    }
+
     public String getImagen() {
         return imagen;
     }
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
-    }
-
-    public File getUrlImagen(){
-        return null;
     }
 
 }

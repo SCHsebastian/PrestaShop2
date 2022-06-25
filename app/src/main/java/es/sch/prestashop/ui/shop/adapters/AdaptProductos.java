@@ -52,7 +52,8 @@ public class AdaptProductos extends RecyclerView.Adapter<AdaptProductos.ViewHold
       if (item!=null){
          float precio = Float.parseFloat(item.getPrice());
          holder.nombre.setText(item.getName());
-         holder.precio.setText(precio+"€");
+         String precioStr = String.format("%.2f", precio)+"€";
+         holder.precio.setText(precioStr);
          if (item.getDescription_short()!=null) {
             holder.descripcion.setText(Html.fromHtml(item.getDescription_short(), Html.FROM_HTML_MODE_COMPACT));
          }else if (item.getDescription()!=null) {

@@ -40,4 +40,7 @@ public interface BinshopApi {
                              @Query(value = "op") String upDown,
                              @Query(value = "action") String action,
                              @Query(value = "qty") int qty);
+
+ @GET("/rest/cart")
+ Call<BaseResponse> getCart();
 }

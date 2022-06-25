@@ -38,6 +38,7 @@
     <string name="product_quantity">Quantity</string>
     <string name="product_price">Price</string>
     <string name="product_total">Total</string>
+    <string name="filter_category">Filter by category</string>
 
 
     <!--CART-->
@@ -63,5 +64,10 @@
     <string name="cancel">Cancel</string>
     <string name="cart_add_succesfully">Your product has been added successfully</string>
     <string name="cart_adding_error">There have been problems adding your product to the cart</string>
+    <string name="cart_succesfully_obtained">Your cart was succesfully obtained</string>
+    <string name="cart_obtaining_error">Error while obtaining your cart</string>
+    <string name="connection_error">503 Service Temporarily Unavailable</string>
+    <string name="cart_remove_dialog">Do you want to remove this item from your cart?</string>
+    <string name="cart_checkout_text">You sure you want to check out?</string>
 
 </resources>

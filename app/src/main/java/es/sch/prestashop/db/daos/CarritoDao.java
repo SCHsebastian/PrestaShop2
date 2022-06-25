@@ -1,5 +1,6 @@
 package es.sch.prestashop.db.daos;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -9,6 +10,7 @@ import androidx.room.Query;
 import java.util.List;
 
 import es.sch.prestashop.db.clases.DBCarrito;
+import es.sch.prestashop.db.clases.DBProducto;
 
 @Dao
 public interface CarritoDao {
@@ -25,6 +27,9 @@ public interface CarritoDao {
     @Query("SELECT * FROM DBCarrito WHERE id = :id")
     DBCarrito getById(int id);
 
+    @Query("SELECT * FROM dbcarrito WHERE id_producto = :item_id")
+    DBCarrito getByIdProducto(int item_id);
+
     @Query("SELECT * FROM DBCarrito WHERE atribute = :atribute")
     DBCarrito getByIdProductoAtributo(int atribute);
 
@@ -34,8 +39,9 @@ public interface CarritoDao {
     @Query("DELETE FROM DBCarrito")
     void deleteAll();
 
+    @Query("SELECT * FROM DBCarrito ORDER BY id DESC LIMIT 1")
+    DBCarrito getLast();
 
-
-
-
+    @Query("SELECT DBProducto.* FROM DBProducto INNER JOIN DBCarrito ON DBCarrito.id_producto = DBProducto.id ")
+    LiveData<List<DBProducto>> getAllProductos();
 }

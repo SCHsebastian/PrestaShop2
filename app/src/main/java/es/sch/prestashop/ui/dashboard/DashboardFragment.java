@@ -11,14 +11,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import es.sch.prestashop.R;
 import es.sch.prestashop.api.BinshopApi;
 import es.sch.prestashop.api.RetrofitClient;
 import es.sch.prestashop.api.binshop.BaseResponse;
 import es.sch.prestashop.api.binshop.User;
+import es.sch.prestashop.api.prestashop.Products;
 import es.sch.prestashop.databinding.FragmentDashboardBinding;
 import es.sch.prestashop.db.PrestaDB;
+import es.sch.prestashop.db.clases.DBCarrito;
+import es.sch.prestashop.db.clases.DBProducto;
 import es.sch.prestashop.db.clases.DBUser;
+import es.sch.prestashop.db.daos.CarritoDao;
 import es.sch.prestashop.db.daos.UserDao;
 import es.sch.prestashop.utils.dialogs.RegisterDialog;
 import retrofit2.Call;
@@ -123,13 +131,38 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                             userDao.insert(dbUser);
                             viewModel.setUser(dbUser);
                             onViewCreated(binding.getRoot(), null);
+                            api.getCart().enqueue(new Callback<BaseResponse>() {
+                                @Override
+                                public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
+                                    if (response.isSuccessful()){
+                                        BaseResponse baseResponse = response.body();
+                                        if (baseResponse.getCode()==200){
+                                            List<DBProducto> products = baseResponse.getPsdata().getProducts();
+                                            CarritoDao dap = PrestaDB.getInstance(getContext()).carritoDao();
+                                            if (products!=null){
+                                                for (DBProducto item: products){
+                                                    DBCarrito dbCarrito = new DBCarrito(
+                                                            item.getId()
+                                                            ,item.getCache_default_attribute(),item.getCart_quantity());
+                                                    dap.insert(dbCarrito);
+                                                }
+                                            }
+                                            Toast.makeText(getContext(), R.string.cart_succesfully_obtained, Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                }
+                                @Override
+                                public void onFailure(Call<BaseResponse> call, Throwable t) {
+                                    Toast.makeText(getActivity(), R.string.cart_obtaining_error, Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         }
                     }
                 }
 
                 @Override
                 public void onFailure(Call<BaseResponse> call, Throwable t) {
-
+                    Toast.makeText(getContext(), R.string.connection_error, Toast.LENGTH_SHORT).show();
                 }
             });
         }else if (view.getId()==R.id.btnLogout){
@@ -142,6 +175,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                             Toast.makeText(getContext(), getText(R.string.logout_text), Toast.LENGTH_SHORT).show();
                         }
                         userDao.delete(viewModel.getUser());
+                        PrestaDB.getInstance(getContext()).carritoDao().deleteAll();
                         viewModel.setUser(null);
                         onViewCreated(binding.getRoot(), null);
                     }

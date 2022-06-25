@@ -1,6 +1,11 @@
 package es.sch.prestashop.api.binshop;
 
 
+import java.util.List;
+
+import es.sch.prestashop.api.prestashop.Products;
+import es.sch.prestashop.db.clases.DBProducto;
+
 public class Psdata {
 
     private String status;
@@ -9,6 +14,7 @@ public class Psdata {
     private int sessionData;
     private int cartCount;
     private User user;
+    public List<DBProducto> products = null;
 
     public String getStatus() {
         return status;
@@ -56,6 +62,14 @@ public class Psdata {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<DBProducto> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<DBProducto> products) {
+        this.products = products;
     }
 
 }

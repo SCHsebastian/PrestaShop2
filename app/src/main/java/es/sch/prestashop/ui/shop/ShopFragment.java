@@ -15,19 +15,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import es.sch.prestashop.R;
 import es.sch.prestashop.databinding.FragmentShopBinding;
 import es.sch.prestashop.db.PrestaDB;
+import es.sch.prestashop.db.clases.DBCategoria;
 import es.sch.prestashop.db.clases.DBProducto;
 import es.sch.prestashop.db.clases.DBUser;
 import es.sch.prestashop.ui.actProducto;
 import es.sch.prestashop.ui.shop.adapters.AdaptProductos;
 
-public class ShopFragment extends Fragment {
+public class ShopFragment extends Fragment{
+
+    public static final String TAG = "ShopFragment";
 
     private FragmentShopBinding binding;
     private DBUser user;
+    private ShopViewModel shopViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -43,9 +49,9 @@ public class ShopFragment extends Fragment {
 
     private void iniciarUi() {
 
-        ShopViewModel homeViewModel = new ShopViewModel(getActivity().getApplication());
+        shopViewModel = new ShopViewModel(getActivity().getApplication());
         RecyclerView rv = binding.rvProductos;
-        LiveData<List<DBProducto>> productosLiveData = homeViewModel.getProductos();
+        LiveData<List<DBProducto>> productosLiveData = shopViewModel.getProductos();
         productosLiveData.observe(getViewLifecycleOwner(), products -> {
             if (products.size()!=0){
                 rv.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -58,7 +64,7 @@ public class ShopFragment extends Fragment {
                             builder.setTitle(getString(R.string.add_to_cart_dialog));
                             builder.setPositiveButton(R.string.add, (dialog, which) -> {
                                 DBProducto producto = products.get(position);
-                                homeViewModel.insertarProducto(producto);
+                                shopViewModel.insertarProducto(producto);
                             });
                             builder.setNegativeButton(R.string.cancel, (dialog, which) -> {
                                 dialog.dismiss();
@@ -81,6 +87,7 @@ public class ShopFragment extends Fragment {
             }
         });
 
+
     }
 
     @Override
@@ -88,4 +95,13 @@ public class ShopFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+
+    public void onFragmentInteraction(int id) {
+        DBCategoria categoria = PrestaDB.getInstance(getContext()).categoriaDao().getById(id);
+        if (categoria!=null){
+            shopViewModel.setCondicionBusqueda(categoria.getName());
+        }
+    }
+
 }
